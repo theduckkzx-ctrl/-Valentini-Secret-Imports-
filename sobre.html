@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa História - Valentini Secret Imports</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+/* Reset e Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Cores principais */
+    --primary-color: #8C6F4A;
+    --primary-light: #C5A46D;
+    --accent-color: #D4AF37;
+    --text-dark: #1A1A1A;
+    --text-light: #666666;
+    --text-muted: #999999;
+    --background-light: #FAFAFA;
+    --background-white: #FFFFFF;
+    --border-light: #E0E0E0;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-medium: rgba(0, 0, 0, 0.15);
+    --gradient-gold: linear-gradient(135deg, #8C6F4A, #C5A46D);
+    --gradient-dark: linear-gradient(135deg, #1A1A1A, #333333);
+    
+    /* Tipografia */
+    --font-primary: 'Playfair Display', serif;
+    --font-secondary: 'Inter', sans-serif;
+    
+    /* Espaçamento */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-xxl: 4rem;
+    
+    /* Breakpoints */
+    --container-max-width: 1200px;
+    --mobile-breakpoint: 768px;
+    --tablet-breakpoint: 1024px;
+    
+    /* Transições */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-secondary);
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--background-white);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+}
+
+/* Tipografia */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: var(--spacing-sm);
+}
+
+.section-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-dark);
+}
+
+.section-subtitle {
+    font-size: 1.125rem;
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: var(--spacing-xl);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-header {
+    margin-bottom: var(--spacing-xxl);
+}
+
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-light);
+    z-index: 1000;
+    transition: var(--transition-normal);
+}
+
+.nav {
+    padding: var(--spacing-sm) 0;
+}
+
+.nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0;
+    font-family: var(--font-primary);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-lg);
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: var(--transition-fast);
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+.nav-link.active {
+    color: var(--primary-color);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-gold);
+    transition: var(--transition-fast);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+}
+
+.nav-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--primary-color);
+    transition: var(--transition-fast);
+}
+
+/* Page Header */
+.page-header {
+    background: var(--background-light);
+    padding: calc(80px + var(--spacing-xxl)) 0 var(--spacing-xxl);
+    text-align: center;
+}
+
+.page-header .section-title {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Sobre */
+.about {
+    padding: var(--spacing-xxl) 0;
+    background: var(--background-white);
+}
+
+.about-subtitle {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xxl);
+    align-items: center;
+    margin-bottom: var(--spacing-xxl);
+}
+
+.about-description {
+    font-size: 1.125rem;
+    color: var(--text-light);
+    margin-bottom: var(--spacing-xl);
+    line-height: 1.7;
+}
+
+.about-highlights {
+    display: grid;
+    gap: var(--spacing-md);
+}
+
+.highlight-item {
+    padding: var(--spacing-md);
+    border-radius: 15px;
+    background: rgba(248, 246, 243, 0.5);
+    border-left: 4px solid var(--primary-color);
+}
+
+.highlight-item strong {
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-size: 1.125rem;
+}
+
+.highlight-item p {
+    color: var(--text-light);
+    margin: 0;
+}
+
+.about-image {
+    position: relative;
+}
+
+.about-img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px var(--shadow-medium);
+}
+
+.philosophy-section {
+    margin-top: var(--spacing-xxl);
+    text-align: center;
+    padding: var(--spacing-xl);
+    background: rgba(248, 246, 243, 0.5);
+    border-radius: 20px;
+}
+
+.philosophy-text {
+    font-size: 1.125rem;
+    color: var(--text-light);
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto;
+    font-style: italic;
+}
+
+/* Timeline */
+.timeline-section {
+    padding: var(--spacing-xxl) 0;
+    background: var(--background-light);
+}
+
+.timeline-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-xl);
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background: var(--gradient-gold);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+}
+
+.timeline-item {
+    padding: var(--spacing-md) 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: -12px;
+    background: var(--primary-color);
+    border: 4px solid var(--background-white);
+    top: 20px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+}
+
+.timeline-item:nth-child(even)::after {
+    left: -12px;
+}
+
+.timeline-content {
+    padding: var(--spacing-md);
+    background: var(--background-white);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow-light);
+}
+
+.timeline-year {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.timeline-title-item {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-sm);
+}
+
+.timeline-description {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* Footer */
+.footer {
+    background: var(--text-dark);
+    color: white;
+    padding: var(--spacing-xl) 0 var(--spacing-lg);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.footer-brand h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.footer-brand p {
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+.footer-links a {
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: var(--transition-normal);
+}
+
+.footer-links a:hover {
+    background: var(--primary-light);
+    transform: translateY(-2px);
+}
+
+.footer-links a svg {
+    width: 20px;
+    height: 20px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    :root {
+        --spacing-xxl: 3rem;
+        --spacing-xl: 2.5rem;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: var(--spacing-lg);
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --spacing-sm: 0.75rem;
+        --spacing-md: 1rem;
+        --spacing-lg: 1.5rem;
+        --spacing-xl: 2rem;
+        --spacing-xxl: 2.5rem;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        padding: var(--spacing-lg);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition-normal);
+        box-shadow: 0 10px 30px var(--shadow-medium);
+    }
+    
+    .nav-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .nav-toggle {
+        display: flex;
+    }
+    
+    .nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+    
+    .about-img {
+        height: 300px;
+    }
+    
+    .page-header {
+        padding: calc(80px + var(--spacing-lg)) 0 var(--spacing-lg);
+    }
+    
+    .timeline::after {
+        left: 31px;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+    
+    .timeline-item::after {
+        left: 20px;
+    }
+    
+    .timeline-item:nth-child(even) {
+        left: 0;
+    }
+    
+    .timeline-item:nth-child(even)::after {
+        left: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .about-img {
+        height: 250px;
+    }
+}
+
+/* Animações */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.highlight-item,
+.timeline-content {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.philosophy-section {
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* Utilitários */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background-light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-light);
+}
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="container">
+                <div class="nav-brand">
+                    <h1 class="brand-logo">Valentini Secret Imports</h1>
+                </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link">Início</a></li>
+                    <li><a href="catalogo.html" class="nav-link">Catálogo</a></li>
+                    <li><a href="sobre.html" class="nav-link active">Nossa História</a></li>
+                    <li><a href="dicas.html" class="nav-link">Dicas</a></li>
+                    <li><a href="contatos.html" class="nav-link">Contatos</a></li>
+                </ul>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="section-title">Nossa História</h1>
+            <p class="section-subtitle">Perfumes que contam histórias</p>
+        </div>
+    </section>
+
+    <!-- Sobre -->
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-description">
+                    <h3 class="about-subtitle">Árabes & Importados Original</h3>
+                    <p>Somos duas mulheres, apaixonadas por perfumes, cosméticos e produtos de beleza. Nossa jornada começou com o sonho de trazer para o Brasil as melhores fragrâncias árabes e importados originais, conquistando espaço no mercado com qualidade e autenticidade.</p>
+                    
+                    <p>Na Valentini Secret Imports, cada fragrance conta uma história única. Selecionamos pessoalmente cada produto, garantindo que você tenha acesso às melhores marcas e aos aromas mais irresistíveis do mundo.</p>
+                    
+                    <p>Nossa missão é transformar momentos especiais em memórias inesquecíveis através da arte da perfumaria.</p>
+                </div>
+
+                <div class="about-image">
+                    <img src="imgs/1-million.jpg" alt="Perfumes Valentini Secret Imports" class="about-img">
+                </div>
+            </div>
+
+            <div class="about-highlights">
+                <div class="highlight-item">
+                    <strong>✅ Produtos Originais</strong>
+                    <p>Garantimos autenticidade em 100% dos nossos produtos, trabalhando apenas com fornecedores confiáveis</p>
+                </div>
+                <div class="highlight-item">
+                    <strong>🌟 Marca Própria</strong>
+                    <p>Perfumes exclusivos e únicos desenvolvidos por nós, com ingredientes de primeira linha</p>
+                </div>
+                <div class="highlight-item">
+                    <strong>🚚 Entrega Rápida</strong>
+                    <p>Entregamos em todo o Brasil com total segurança e transparência no processo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="timeline-section">
+        <div class="container">
+            <h2 class="timeline-title">Nossa Jornada</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023</div>
+                        <h4 class="timeline-title-item">O Começo da Paixão</h4>
+                        <p class="timeline-description">Duas amigas unidas pelo amor aos perfumes decidem criar algo especial, buscando fragrances únicas e originais para o mercado brasileiro.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2024</div>
+                        <h4 class="timeline-title-item">Primeiros Contatos</h4>
+                        <p class="timeline-description">Começamos a trabalhar com os melhores fornecedores árabes e importados, estabelecendo nossa reputação de qualidade e autenticidade.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2024</div>
+                        <h4 class="timeline-title-item">Valentini Secret Imports</h4>
+                        <p class="timeline-description">Fundação oficial da marca, com foco em perfumes originais árabes e importados, conquistando espaço no mercado nacional.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2025</div>
+                        <h4 class="timeline-title-item">Expansão Digital</h4>
+                        <p class="timeline-description">Presença digital fortalecida através do Instagram, conectando-se diretamente com nossos clientes e compartilhando nossa paixão por perfumes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filosofia -->
+    <section class="philosophy-section">
+        <div class="container">
+            <h3 class="about-subtitle">Nossa Filosofia</h3>
+            <p class="philosophy-text">
+                "Acreditamos que cada pessoa tem sua própria história para contar. Um fragrance pode ser o detalhe que transforma um momento comum em extraordinário. Por isso, selecionamos com carinho cada perfume, cada essência, para que você encontre exatamente o que combina com sua personalidade e estilo."
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Valentini Secret Imports</h3>
+                    <p>Perfumes que contam histórias</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://instagram.com/valentini_secret_imports" target="_blank" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Valentini Secret Imports. Todos os direitos reservados. | Criado por MiniMax Agent</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+// Aguarda o carregamento completo da página
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // Elementos do DOM
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const header = document.querySelector('.header');
+    
+    // Menu mobile toggle
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', function() {
+            navToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            
+            if (navMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        document.addEventListener('click', function(e) {
+            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
+    
+    // Header effect ao scroll
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > 100) {
+            header.style.background = 'rgba(255, 255, 255, 0.98)';
+            header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+        } else {
+            header.style.background = 'rgba(255, 255, 255, 0.95)';
+            header.style.boxShadow = 'none';
+        }
+        
+        lastScrollTop = scrollTop;
+    });
+    
+    console.log('Página Nossa História carregada com sucesso! ✨');
+});
+    </script>
+</body>
+</html>

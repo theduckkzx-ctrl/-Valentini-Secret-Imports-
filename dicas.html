@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dicas de Perfumaria - Valentini Secret Imports</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+/* Reset e Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Cores principais */
+    --primary-color: #8C6F4A;
+    --primary-light: #C5A46D;
+    --accent-color: #D4AF37;
+    --text-dark: #1A1A1A;
+    --text-light: #666666;
+    --text-muted: #999999;
+    --background-light: #FAFAFA;
+    --background-white: #FFFFFF;
+    --border-light: #E0E0E0;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-medium: rgba(0, 0, 0, 0.15);
+    --gradient-gold: linear-gradient(135deg, #8C6F4A, #C5A46D);
+    --gradient-dark: linear-gradient(135deg, #1A1A1A, #333333);
+    
+    /* Tipografia */
+    --font-primary: 'Playfair Display', serif;
+    --font-secondary: 'Inter', sans-serif;
+    
+    /* Espaçamento */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-xxl: 4rem;
+    
+    /* Breakpoints */
+    --container-max-width: 1200px;
+    --mobile-breakpoint: 768px;
+    --tablet-breakpoint: 1024px;
+    
+    /* Transições */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-secondary);
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--background-white);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+}
+
+/* Tipografia */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: var(--spacing-sm);
+}
+
+.section-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-dark);
+}
+
+.section-subtitle {
+    font-size: 1.125rem;
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: var(--spacing-xl);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-header {
+    margin-bottom: var(--spacing-xxl);
+}
+
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-light);
+    z-index: 1000;
+    transition: var(--transition-normal);
+}
+
+.nav {
+    padding: var(--spacing-sm) 0;
+}
+
+.nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0;
+    font-family: var(--font-primary);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-lg);
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: var(--transition-fast);
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+.nav-link.active {
+    color: var(--primary-color);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-gold);
+    transition: var(--transition-fast);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+}
+
+.nav-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--primary-color);
+    transition: var(--transition-fast);
+}
+
+/* Page Header */
+.page-header {
+    background: var(--background-light);
+    padding: calc(80px + var(--spacing-xxl)) 0 var(--spacing-xxl);
+    text-align: center;
+}
+
+.page-header .section-title {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Dicas */
+.dicas {
+    padding: var(--spacing-xxl) 0;
+    background: var(--background-light);
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xxl);
+}
+
+.tip-card {
+    background: var(--background-white);
+    padding: var(--spacing-lg);
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px var(--shadow-light);
+    transition: var(--transition-normal);
+}
+
+.tip-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px var(--shadow-medium);
+}
+
+.tip-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto var(--spacing-md);
+    background: var(--gradient-gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.tip-icon svg {
+    width: 30px;
+    height: 30px;
+}
+
+.tip-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-dark);
+}
+
+.tip-card p {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.spray-points {
+    background: var(--background-white);
+    padding: var(--spacing-xl);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow-light);
+}
+
+.spray-title {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    color: var(--primary-color);
+    font-size: 1.375rem;
+}
+
+.spray-areas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-sm);
+}
+
+.spray-area {
+    background: rgba(140, 111, 74, 0.1);
+    color: var(--primary-color);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: 25px;
+    text-align: center;
+    font-weight: 600;
+    transition: var(--transition-fast);
+}
+
+.spray-area:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Additional Tips Section */
+.additional-tips {
+    padding: var(--spacing-xxl) 0;
+    background: var(--background-white);
+}
+
+.tips-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xxl);
+    margin-top: var(--spacing-xl);
+}
+
+.tips-column {
+    background: rgba(248, 246, 243, 0.5);
+    padding: var(--spacing-xl);
+    border-radius: 20px;
+}
+
+.tips-column h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-lg);
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.tips-list {
+    list-style: none;
+    display: grid;
+    gap: var(--spacing-md);
+}
+
+.tips-list li {
+    background: var(--background-white);
+    padding: var(--spacing-md);
+    border-radius: 10px;
+    border-left: 4px solid var(--primary-color);
+    font-size: 1rem;
+    color: var(--text-dark);
+}
+
+/* Body Spray Points */
+.body-spray-section {
+    padding: var(--spacing-xxl) 0;
+    background: var(--background-light);
+}
+
+.body-spray-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+}
+
+.body-spray-card {
+    background: var(--background-white);
+    padding: var(--spacing-xl);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow-light);
+    text-align: center;
+}
+
+.body-spray-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--spacing-md);
+    background: var(--gradient-gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+}
+
+.body-spray-card h4 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--primary-color);
+}
+
+.body-spray-card p {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* Footer */
+.footer {
+    background: var(--text-dark);
+    color: white;
+    padding: var(--spacing-xl) 0 var(--spacing-lg);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.footer-brand h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.footer-brand p {
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+.footer-links a {
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: var(--transition-normal);
+}
+
+.footer-links a:hover {
+    background: var(--primary-light);
+    transform: translateY(-2px);
+}
+
+.footer-links a svg {
+    width: 20px;
+    height: 20px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    :root {
+        --spacing-xxl: 3rem;
+        --spacing-xl: 2.5rem;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: var(--spacing-lg);
+        text-align: center;
+    }
+    
+    .tips-columns {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --spacing-sm: 0.75rem;
+        --spacing-md: 1rem;
+        --spacing-lg: 1.5rem;
+        --spacing-xl: 2rem;
+        --spacing-xxl: 2.5rem;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        padding: var(--spacing-lg);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition-normal);
+        box-shadow: 0 10px 30px var(--shadow-medium);
+    }
+    
+    .nav-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .nav-toggle {
+        display: flex;
+    }
+    
+    .nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+    
+    .tips-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .spray-areas {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    
+    .page-header {
+        padding: calc(80px + var(--spacing-lg)) 0 var(--spacing-lg);
+    }
+    
+    .body-spray-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .tip-card {
+        padding: var(--spacing-md);
+    }
+    
+    .tips-column {
+        padding: var(--spacing-lg);
+    }
+    
+    .body-spray-card {
+        padding: var(--spacing-lg);
+    }
+    
+    .spray-areas {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xs);
+    }
+}
+
+/* Animações */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.tip-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.tip-card:nth-child(even) {
+    animation-delay: 0.1s;
+}
+
+.spray-points {
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* Utilitários */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background-light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-light);
+}
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="container">
+                <div class="nav-brand">
+                    <h1 class="brand-logo">Valentini Secret Imports</h1>
+                </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link">Início</a></li>
+                    <li><a href="catalogo.html" class="nav-link">Catálogo</a></li>
+                    <li><a href="sobre.html" class="nav-link">Nossa História</a></li>
+                    <li><a href="dicas.html" class="nav-link active">Dicas</a></li>
+                    <li><a href="contatos.html" class="nav-link">Contatos</a></li>
+                </ul>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="section-title">Dicas de Perfumaria</h1>
+            <p class="section-subtitle">4 DICAS PARA FAZER A SUA FRAGRÂNCIA FIXAR MUITO MAIS</p>
+        </div>
+    </section>
+
+    <!-- Dicas Principais -->
+    <section class="dicas">
+        <div class="container">
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <h3>Aplique no Pulso</h3>
+                    <p>Aplique o perfume nos pulsos, onde a pele está mais quente e vascularizada. Esfregue os pulsos suavemente para ativar a fragrância.</p>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                        </svg>
+                    </div>
+                    <h3>Hidratação Prévia</h3>
+                    <p>Aplique um hidratante sem fragrance antes do perfume. Isso cria uma barreira que ajuda a fixar a fragrância por mais tempo.</p>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <h3>Não Esfregue</h3>
+                    <p>Não esfregue os pulsos após aplicar o perfume. Isso quebra as moléculas da fragrância e reduz a duração.</p>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                        </svg>
+                    </div>
+                    <h3>Pontos Estratégicos</h3>
+                    <p>Aplique atrás das orelhas, no pescoço e na dobra dos cotovelos. Esses pontos liberam mais calor, potencializando o perfume.</p>
+                </div>
+            </div>
+
+            <div class="spray-points">
+                <h3 class="spray-title">Onde Aplicar - Pontos do Corpo</h3>
+                <div class="spray-areas">
+                    <div class="spray-area">💆‍♀️ Pescoço</div>
+                    <div class="spray-area">👂 Atrás das Orelhas</div>
+                    <div class="spray-area">👐 Pulsos</div>
+                    <div class="spray-area">🔄 Cotovelos</div>
+                    <div class="spray-area">🦵 Joelhos</div>
+                    <div class="spray-area">👙 Decote</div>
+                    <div class="spray-area">🌪️ Pes</div>
+                    <div class="spray-area">⚡ Atrás dos Joelhos</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dicas Adicionais -->
+    <section class="additional-tips">
+        <div class="container">
+            <div class="tips-columns">
+                <div class="tips-column">
+                    <h3>💡 Dicas de Conservação</h3>
+                    <ul class="tips-list">
+                        <li>Mantenha os perfumes em local fresco e seco</li>
+                        <li>Evite exposição à luz solar direta</li>
+                        <li>Feche bem a tampa após o uso</li>
+                        <li>Não deixe no banheiro (umidade)</li>
+                        <li>Armazene na embalagem original</li>
+                    </ul>
+                </div>
+                
+                <div class="tips-column">
+                    <h3>⏰ Timing Perfeito</h3>
+                    <ul class="tips-list">
+                        <li>Aplique sempre em pele limpa</li>
+                        <li>Após o banho é o melhor momento</li>
+                        <li>Para uso diurno: perfumes frescos</li>
+                        <li>Para uso noturno: fragrâncias mais intensas</li>
+                        <li>Reaplique se necessário (menos é mais)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Body Spray Section -->
+    <section class="body-spray-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Dicas Extras</h2>
+                <p class="section-subtitle">Segredos profissionais para perfumes mais duradouros</p>
+            </div>
+
+            <div class="body-spray-grid">
+                <div class="body-spray-card">
+                    <div class="body-spray-icon">🌡️</div>
+                    <h4>Temperatura Corpórea</h4>
+                    <p>Aplicar em pontos onde a temperatura é ligeiramente mais alta torna a fragrância mais intensa e duradoura.</p>
+                </div>
+
+                <div class="body-spray-card">
+                    <div class="body-spray-icon">👕</div>
+                    <h4>Com a Roupa</h4>
+                    <p>Aplique uma pequena quantidade na roupa (a pelo menos 20cm de distância) para uma duração ainda maior.</p>
+                </div>
+
+                <div class="body-spray-card">
+                    <div class="body-spray-icon">🧴</div>
+                    <h4>Camadas de Fragrância</h4>
+                    <p>Use produtos da mesma linha (gel, loção, perfume) para potencializar o resultado final.</p>
+                </div>
+
+                <div class="body-spray-card">
+                    <div class="body-spray-icon">🕐</div>
+                    <h4>Duração Natural</h4>
+                    <p>Fragrâncias cítricas duram menos que amadeiradas. Ajuste suas expectativas baseado na família olfativa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Valentini Secret Imports</h3>
+                    <p>Perfumes que contam histórias</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://instagram.com/valentini_secret_imports" target="_blank" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Valentini Secret Imports. Todos os direitos reservados. | Criado por MiniMax Agent</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+// Aguarda o carregamento completo da página
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // Elementos do DOM
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const header = document.querySelector('.header');
+    
+    // Menu mobile toggle
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', function() {
+            navToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            
+            if (navMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        document.addEventListener('click', function(e) {
+            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
+    
+    // Header effect ao scroll
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > 100) {
+            header.style.background = 'rgba(255, 255, 255, 0.98)';
+            header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+        } else {
+            header.style.background = 'rgba(255, 255, 255, 0.95)';
+            header.style.boxShadow = 'none';
+        }
+        
+        lastScrollTop = scrollTop;
+    });
+    
+    console.log('Página de Dicas carregada com sucesso! ✨');
+});
+    </script>
+</body>
+</html>
